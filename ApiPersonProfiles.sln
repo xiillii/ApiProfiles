@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPersonProfiles.Core.Doma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPersonProfiles.Core.Application", "src\core\ApiPersonProfiles.Core.Application\ApiPersonProfiles.Core.Application.csproj", "{117F7718-959F-4986-9116-2801BB3E581F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5851F950-A406-4867-89BF-CDB7E795159D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPersonProfiles.UnitTests", "tests\ApiPersonProfiles.UnitTests\ApiPersonProfiles.UnitTests.csproj", "{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +32,15 @@ Global
 		{117F7718-959F-4986-9116-2801BB3E581F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{117F7718-959F-4986-9116-2801BB3E581F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{117F7718-959F-4986-9116-2801BB3E581F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8B58C131-2CF5-4309-AF15-B2289ED6486F} = {9F466E49-F8BF-4D16-B415-8E5811AB93D7}
 		{9D192C34-7BCE-4313-A248-7D8F97287331} = {8B58C131-2CF5-4309-AF15-B2289ED6486F}
 		{117F7718-959F-4986-9116-2801BB3E581F} = {8B58C131-2CF5-4309-AF15-B2289ED6486F}
+		{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35} = {5851F950-A406-4867-89BF-CDB7E795159D}
 	EndGlobalSection
 EndGlobal
