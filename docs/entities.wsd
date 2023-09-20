@@ -1,0 +1,27 @@
+@startuml Entities
+
+skinparam ClassAttributeIconSize 0
+
+abstract class EntityBase {
+  + Id
+  + DateCreated
+  + DateModified
+}
+
+class Profile extends EntityBase {
+  + FirstName
+  + LastName
+  + Age
+  + Nickname
+}
+
+class Picture {
+  + ProfileId
+  + ThumbnailFileName
+  + FileName
+}
+
+Profile -> Picture
+
+
+@enduml

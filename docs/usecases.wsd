@@ -1,0 +1,22 @@
+@startuml use-cases
+
+left to right direction
+
+actor User as a1
+usecase "List Profiles" as uc1
+usecase "Get Profile" as uc2
+usecase "Create Profile" as uc3
+usecase "Update Profile" as uc4
+usecase "Delete Profile" as uc5
+usecase "Upload Picture Profile" as uc6
+usecase "Remove Picture Profile" as uc7
+
+a1 --> uc1
+a1 --> uc2
+a1 --> uc3
+a1 --> uc4
+a1 --> uc5
+a1 --> uc6
+a1 --> uc7
+
+@enduml
