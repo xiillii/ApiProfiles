@@ -2,7 +2,7 @@
 using ApiPersonProfiles.Core.Domain;
 using Moq;
 
-namespace ApiPersonProfiles.UnitTests.Mocks;
+namespace ApiPersonProfiles.Application.UnitTests.Mocks;
 
 public class MockProfileRepository
 {
@@ -45,7 +45,7 @@ public class MockProfileRepository
         {
             profiles.Add(profile);
 
-            return Task.CompletedTask;
+            return Task.FromResult(profile);
         });
 
         return mockRepo;
