@@ -24,4 +24,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\core\ApiPersonProfiles.Core.Application\ApiPersonProfiles.Core.Application.csproj" />
+  </ItemGroup>
+
 </Project>
