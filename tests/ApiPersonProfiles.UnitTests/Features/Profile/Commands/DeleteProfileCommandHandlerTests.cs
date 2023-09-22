@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using ApiPersonProfiles.Core.Application.Features.Profile.Commands.DeleteProfile;
 using ApiPersonProfiles.Core.Application.Features.Profile.Commands.UpdateProfile;
 using ApiPersonProfiles.Core.Application.Features.Profile.Queries.GetProfileDetails;
@@ -45,10 +46,7 @@ public class DeleteProfileCommandHandlerTests
         // assert
         result.ShouldBeOfType<Unit>();
 
-        var item = await getHandler.Handle(new GetProfileDetailsQuery(1), CancellationToken.None);
-
-        item.ShouldBeNull();
-        
+        Should.Throw<NotFoundException>(async () => await getHandler.Handle(new GetProfileDetailsQuery(1), CancellationToken.None));        
     }
 
     [Fact]
@@ -64,7 +62,7 @@ public class DeleteProfileCommandHandlerTests
 
         // TODO: Catch Badrequest exception
         // assert
-        Should.Throw<Exception>(async () => await handler.Handle(command, CancellationToken.None));
+        Should.Throw<NotFoundException>(async () => await handler.Handle(command, CancellationToken.None));
 
         
 

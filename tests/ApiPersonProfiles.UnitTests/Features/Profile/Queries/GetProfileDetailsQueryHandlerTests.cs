@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using ApiPersonProfiles.Core.Application.Features.Profile.Queries.GetProfileDetails;
 using ApiPersonProfiles.Core.Application.MappingProfiles;
 using ApiPersonProfiles.Tests.Application.UnitTests.Mocks;
@@ -40,16 +41,12 @@ public class GetProfileDetailsQueryHandlerTests
     }
 
     [Fact]
-    public async Task GetProfileDetailsNotFoundTest()
+    public void GetProfileDetailsNotFoundTest()
     {
         // arrange
         var handler = new GetProfileDetailsQueryHandler(_mapper, _mockRepository.Object);
 
-        // act
-        var result = await handler.Handle(new GetProfileDetailsQuery(100), CancellationToken.None);
-
         // assert
-        
-        result.ShouldBeNull();
+        Should.Throw<NotFoundException>(async () => await handler.Handle(new GetProfileDetailsQuery(100), CancellationToken.None));
     }
 }

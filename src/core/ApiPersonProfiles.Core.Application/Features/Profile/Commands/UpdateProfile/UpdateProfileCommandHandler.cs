@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using AutoMapper;
 using MediatR;
 
@@ -20,13 +21,8 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
         // TODO: Validate incomming data
 
         // get the item
-        var profileToUpdate = await _repository.GetByIdAsync(request.Id);
-
-        if (profileToUpdate == null)
-        {
-            // TODO: throw a custom notfount error
-            throw new Exception();
-        }
+        var profileToUpdate = await _repository.GetByIdAsync(request.Id)
+                              ?? throw new NotFoundException(nameof(Domain.Profile), request.Id);
 
         // convert to domain entity object
         // this update and convert to entity object

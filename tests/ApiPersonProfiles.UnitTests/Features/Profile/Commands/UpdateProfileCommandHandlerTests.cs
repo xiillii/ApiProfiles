@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using ApiPersonProfiles.Core.Application.Features.Profile.Commands.CreateProfile;
 using ApiPersonProfiles.Core.Application.Features.Profile.Commands.UpdateProfile;
 using ApiPersonProfiles.Core.Application.Features.Profile.Queries.GetProfileDetails;
@@ -61,7 +62,7 @@ public class UpdateProfileCommandHandlerTests
         var handler = new UpdateProfileCommandHandler(_mapper, _mockRepository.Object);
         var command = new UpdateProfileCommand
         {
-            Id = 500,
+            Id = 1,
             FirstName = null,
             LastName = "last name",
         };
@@ -69,11 +70,11 @@ public class UpdateProfileCommandHandlerTests
 
         // TODO: Catch Badrequest exception
         // assert
-        Should.Throw<Exception>(async () => await handler.Handle(command, CancellationToken.None));
+        Should.Throw<BadRequestException>(async () => await handler.Handle(command, CancellationToken.None));
     }
 
     [Fact]
-    public async Task UpdateProfileNotFoundTest()
+    public void UpdateProfileNotFoundTest()
     {
         // arrange
         var handler = new UpdateProfileCommandHandler(_mapper, _mockRepository.Object);
@@ -84,9 +85,8 @@ public class UpdateProfileCommandHandlerTests
             LastName = "last name",
         };
 
-
-        // TODO: Catch Badrequest exception
+      
         // assert
-        Should.Throw<Exception>(async () => await handler.Handle(command, CancellationToken.None));
+        Should.Throw<NotFoundException>(async () => await handler.Handle(command, CancellationToken.None));
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using ApiPersonProfiles.Core.Application.Features.Profile.Commands.CreateProfile;
 using ApiPersonProfiles.Core.Application.MappingProfiles;
 using ApiPersonProfiles.Tests.Application.UnitTests.Mocks;
@@ -59,6 +60,6 @@ public class CreateProfileCommandHandlerTests
 
         // TODO: Catch Badrequest exception
         // assert
-        Should.Throw<Exception>(async () => await handler.Handle(command, CancellationToken.None));
+        Should.Throw<BadRequestException>(async () => await handler.Handle(command, CancellationToken.None));
     }
 }

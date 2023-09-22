@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using AutoMapper;
 using MediatR;
 
@@ -18,13 +19,8 @@ public class DeleteProfileCommandHandler : IRequestHandler<DeleteProfileCommand,
     public async Task<Unit> Handle(DeleteProfileCommand request, CancellationToken cancellationToken)
     {
         // get the data from database
-        var profileToDelete = await _repository.GetByIdAsync(request.Id);
-
-        if (profileToDelete == null)
-        {
-            // TODO: Return a custom notfound error
-            throw new Exception();
-        }
+        var profileToDelete = await _repository.GetByIdAsync(request.Id)
+                              ?? throw new NotFoundException(nameof(Domain.Profile), request.Id);
 
         // delete from database
         await _repository.DeleteAsync(profileToDelete);

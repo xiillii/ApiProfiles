@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using AutoMapper;
 using MediatR;
 
@@ -18,7 +19,8 @@ public class GetProfileDetailsQueryHandler : IRequestHandler<GetProfileDetailsQu
     public async Task<ProfileDetailsDto> Handle(GetProfileDetailsQuery request, CancellationToken cancellationToken)
     {
         // read the database
-        var profile = await _repository.GetByIdAsync(request.Id);
+        var profile = await _repository.GetByIdAsync(request.Id)
+                      ?? throw new NotFoundException(nameof(Domain.Profile), request.Id);
 
         // convert data objest to dto
         var profileDto = _mapper.Map<ProfileDetailsDto>(profile);
