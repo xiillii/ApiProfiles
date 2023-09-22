@@ -1,5 +1,8 @@
 # ApiProfiles
 
+[![Build.NET](https://github.com/xiillii/ApiProfiles/actions/workflows/dotnet.yml/badge.svg)](https://github.com/xiillii/ApiProfiles/actions/workflows/dotnet.yml)
+
+
 An API Rest to implement the CRUD of a Person Profile
 
 # Use Case
