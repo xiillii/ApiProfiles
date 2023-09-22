@@ -40,6 +40,18 @@ public class MockProfileRepository
         var mockRepo = new Mock<IProfileRepository>();
 
         mockRepo.Setup(r => r.GetAsync()).ReturnsAsync(profiles);
+        mockRepo.Setup(r => r.IsNicknameUnique(It.IsAny<string>())).Returns((string nickname) =>
+        {
+            var item = profiles.Find(x => nickname.Equals(x.Nickname, StringComparison.InvariantCultureIgnoreCase));
+
+            return Task.FromResult(item == null);
+        });
+        mockRepo.Setup(r => r.IsNicknameUnique(It.IsAny<string>(), It.IsAny<int>())).Returns((string nickname, int id) =>
+        {
+            var item = profiles.Find(x => x.Id != id && x.Nickname.Equals(nickname, StringComparison.InvariantCultureIgnoreCase));
+
+            return Task.FromResult(item == null);
+        });
         mockRepo.Setup(r => r.GetByIdAsync(It.IsAny<int>())).Returns((int id) =>
         {
             return Task.FromResult(profiles.Find(x => x.Id == id));

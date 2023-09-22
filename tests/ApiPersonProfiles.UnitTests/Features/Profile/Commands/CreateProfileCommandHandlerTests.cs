@@ -36,6 +36,7 @@ public class CreateProfileCommandHandlerTests
             FirstName = "first name",
             LastName = "last name",
             Age = 20,
+            Nickname = "Panchi"
         };
 
         // act

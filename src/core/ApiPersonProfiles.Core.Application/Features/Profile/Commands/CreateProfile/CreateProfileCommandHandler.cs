@@ -1,4 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Application.Exceptions;
 using AutoMapper;
 using MediatR;
 
@@ -17,7 +18,14 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
 
     public async Task<int> Handle(CreateProfileCommand request, CancellationToken cancellationToken)
     {
-        // TODO: validate incomnig data
+        // Validate incoming data
+        var validator = new CreateProfileCommandValidator(_repository);
+        var validationResult = await validator.ValidateAsync(request, cancellationToken);
+
+        if (validationResult.Errors.Any())
+        {
+            throw new BadRequestException("Invalid Profile", validationResult);
+        }
 
         // Convert DTO to domain entity
         var profileToCreate = _mapper.Map<Domain.Profile>(request);

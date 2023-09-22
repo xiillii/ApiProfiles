@@ -1,6 +1,5 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
 using ApiPersonProfiles.Core.Application.Exceptions;
-using ApiPersonProfiles.Core.Application.Features.Profile.Commands.CreateProfile;
 using ApiPersonProfiles.Core.Application.Features.Profile.Commands.UpdateProfile;
 using ApiPersonProfiles.Core.Application.Features.Profile.Queries.GetProfileDetails;
 using ApiPersonProfiles.Core.Application.MappingProfiles;
@@ -41,6 +40,7 @@ public class UpdateProfileCommandHandlerTests
             FirstName = "first name Updated",
             LastName = "last name Updated",
             Age = 20,
+            Nickname = "fulanito"
         };
 
         // act
@@ -67,8 +67,6 @@ public class UpdateProfileCommandHandlerTests
             LastName = "last name",
         };
 
-
-        // TODO: Catch Badrequest exception
         // assert
         Should.Throw<BadRequestException>(async () => await handler.Handle(command, CancellationToken.None));
     }
@@ -81,8 +79,10 @@ public class UpdateProfileCommandHandlerTests
         var command = new UpdateProfileCommand
         {
             Id = 500,
-            FirstName = null,
-            LastName = "last name",
+            FirstName = "first name updated",
+            LastName = "last name updated",
+            Age = 40,
+            Nickname = "Updated"
         };
 
       

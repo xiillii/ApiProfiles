@@ -18,11 +18,18 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
 
     public async Task<Unit> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
     {
-        // TODO: Validate incomming data
-
         // get the item
         var profileToUpdate = await _repository.GetByIdAsync(request.Id)
                               ?? throw new NotFoundException(nameof(Domain.Profile), request.Id);
+
+        // Validate incomming data
+        var validator = new UpdateProfileCommandValidator(_repository);
+        var validationResult = await validator.ValidateAsync(request, cancellationToken);
+
+        if (validationResult.Errors.Any())
+        {
+            throw new BadRequestException("Invalid Profile", validationResult);
+        }
 
         // convert to domain entity object
         // this update and convert to entity object
