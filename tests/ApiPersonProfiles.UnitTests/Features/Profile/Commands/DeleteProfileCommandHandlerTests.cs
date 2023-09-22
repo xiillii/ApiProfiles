@@ -50,4 +50,23 @@ public class DeleteProfileCommandHandlerTests
         item.ShouldBeNull();
         
     }
+
+    [Fact]
+    public void DeleteProfileNotFoundTest()
+    {
+        // arrange
+        
+        var handler = new DeleteProfileCommandHandler(_mapper, _mockRepository.Object);
+        var command = new DeleteProfileCommand
+        {
+            Id = 100
+        };
+
+        // TODO: Catch Badrequest exception
+        // assert
+        Should.Throw<Exception>(async () => await handler.Handle(command, CancellationToken.None));
+
+        
+
+    }
 }

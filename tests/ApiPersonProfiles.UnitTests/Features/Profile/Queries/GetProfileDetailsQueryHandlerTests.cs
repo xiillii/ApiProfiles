@@ -38,4 +38,18 @@ public class GetProfileDetailsQueryHandlerTests
         result.ShouldBeOfType<ProfileDetailsDto>();
         result.ShouldNotBeNull();
     }
+
+    [Fact]
+    public async Task GetProfileDetailsNotFoundTest()
+    {
+        // arrange
+        var handler = new GetProfileDetailsQueryHandler(_mapper, _mockRepository.Object);
+
+        // act
+        var result = await handler.Handle(new GetProfileDetailsQuery(100), CancellationToken.None);
+
+        // assert
+        
+        result.ShouldBeNull();
+    }
 }
