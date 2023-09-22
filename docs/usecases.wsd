@@ -10,6 +10,7 @@ usecase "Update Profile" as uc4
 usecase "Delete Profile" as uc5
 usecase "Upload Picture Profile" as uc6
 usecase "Remove Picture Profile" as uc7
+usecase "Get Picture Profile" as uc8
 
 a1 --> uc1
 a1 --> uc2
@@ -18,5 +19,6 @@ a1 --> uc4
 a1 --> uc5
 a1 --> uc6
 a1 --> uc7
+a1 --> uc8
 
 @enduml
