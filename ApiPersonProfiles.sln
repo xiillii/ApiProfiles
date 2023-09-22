@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiPersonProfiles.Core.Appl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5851F950-A406-4867-89BF-CDB7E795159D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiPersonProfiles.Application.UnitTests", "tests\ApiPersonProfiles.UnitTests\ApiPersonProfiles.Application.UnitTests.csproj", "{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiPersonProfiles.Tests.Application.UnitTests", "tests\ApiPersonProfiles.UnitTests\ApiPersonProfiles.Tests.Application.UnitTests.csproj", "{6929FB9A-BE61-4C47-8EE5-83DD7DF6AD35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

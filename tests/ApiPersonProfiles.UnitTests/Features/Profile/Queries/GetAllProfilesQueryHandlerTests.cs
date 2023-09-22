@@ -1,12 +1,12 @@
-﻿using ApiPersonProfiles.Application.UnitTests.Mocks;
-using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
 using ApiPersonProfiles.Core.Application.Features.Profile.Queries.GetAllProfiles;
 using ApiPersonProfiles.Core.Application.MappingProfiles;
+using ApiPersonProfiles.Tests.Application.UnitTests.Mocks;
 using AutoMapper;
 using Moq;
 using Shouldly;
 
-namespace ApiPersonProfiles.Application.UnitTests.Features.Profile.Queries;
+namespace ApiPersonProfiles.Tests.Application.UnitTests.Features.Profile.Queries;
 
 public class GetAllProfilesQueryHandlerTests
 {
