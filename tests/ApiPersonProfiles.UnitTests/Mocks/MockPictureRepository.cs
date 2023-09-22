@@ -67,6 +67,17 @@ public class MockPictureRepository
 
             return Task.FromResult(item);
         });
+        mockRepo.Setup(r => r.DeleteAsync(It.IsAny<Picture>())).Returns((Picture picture) =>
+        {
+            var item = pictures.Find(p => p.Id == picture.Id);
+
+            if (item != null)
+            {
+                pictures.Remove(item);
+            }
+
+            return Task.FromResult(item);
+        });
 
         return mockRepo;
     }

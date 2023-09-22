@@ -1,4 +1,5 @@
-﻿using ApiPersonProfiles.Core.Application.Features.Picture.Commands.UploadPicture;
+﻿using ApiPersonProfiles.Core.Application.Features.Picture.Commands.RemovePicture;
+using ApiPersonProfiles.Core.Application.Features.Picture.Commands.UploadPicture;
 using ApiPersonProfiles.Core.Application.Features.Picture.Queries.GetPicture;
 using AutoMapper;
 
@@ -11,5 +12,6 @@ public class PictureProfile : Profile
         CreateMap<Domain.Picture, PictureDto>();
 
         CreateMap<UploadPictureCommand, Domain.Picture>();
+        CreateMap<RemovePictureCommand, Domain.Picture>();
     }
 }
