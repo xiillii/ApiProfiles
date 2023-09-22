@@ -55,7 +55,7 @@ public class UpdateProfileCommandHandlerTests
     }
 
     [Fact]
-    public async Task UpdateProfileBadRequestTest()
+    public void UpdateProfileBadRequestTest()
     {
         // arrange
         var handler = new UpdateProfileCommandHandler(_mapper, _mockRepository.Object);
