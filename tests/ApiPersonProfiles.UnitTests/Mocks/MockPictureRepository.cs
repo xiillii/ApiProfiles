@@ -45,6 +45,28 @@ public class MockPictureRepository
         {
             return Task.FromResult(pictures.Find(x => x.ProfileId == profileId));   
         });
+        mockRepo.Setup(r => r.CreateAsync(It.IsAny<Picture>())).Returns((Picture picture) =>
+        {
+            picture.Id = pictures.Max(x => x.Id) + 1;
+            pictures.Add(picture);
+
+            return Task.FromResult(picture);
+        });
+        mockRepo.Setup(r => r.UpdateAsync(It.IsAny<Picture>())).Returns((Picture picture) =>
+        {
+            // get the item
+            var item = pictures.Find(p => p.Id == picture.Id);
+
+            if (item != null)
+            {
+                // update
+                item.ProfileId = picture.ProfileId;
+                item.ThumbnailFileName = picture.ThumbnailFileName;
+                item.FileName = picture.FileName;
+            }
+
+            return Task.FromResult(item);
+        });
 
         return mockRepo;
     }

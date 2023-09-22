@@ -35,6 +35,22 @@ public class MockProfileRepository
                 Age = 20,
                 Nickname = "fulanita"
             },
+            new Profile
+            {
+                Id = 3,
+                FirstName = "Jane",
+                LastName = "Doe",
+                Age = 20,
+                Nickname = "perenganita"
+            },
+            new Profile
+            {
+                Id = 4,
+                FirstName = "Jane",
+                LastName = "Doe",
+                Age = 20,
+                Nickname = "pichicatita"
+            },
         };
 
         var mockRepo = new Mock<IProfileRepository>();

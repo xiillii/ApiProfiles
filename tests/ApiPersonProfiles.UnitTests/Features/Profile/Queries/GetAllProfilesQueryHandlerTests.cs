@@ -36,6 +36,6 @@ public class GetAllProfilesQueryHandlerTests
 
         // assert
         result.ShouldBeOfType<List<ProfileDto>>();
-        result.Count.ShouldBe(2);
+        result.Count.ShouldBe(4);
     }
 }
