@@ -13,7 +13,7 @@ public class ProfileRepositoryImpl : GenericRepositoryImpl<Profile>, IProfileRep
 
     public async Task<bool> IsNicknameUnique(string nickName)
     {
-        var notUnique = await _context.Profiles.AnyAsync(p => p.Nickname.Contains(
+        var notUnique = await _context.Profiles.AnyAsync(p => p.Nickname.Equals(
             nickName,
             StringComparison.InvariantCultureIgnoreCase));
 
@@ -22,7 +22,7 @@ public class ProfileRepositoryImpl : GenericRepositoryImpl<Profile>, IProfileRep
 
     public async Task<bool> IsNicknameUnique(string? nickname, int id)
     {
-        var notUnique = await _context.Profiles.AnyAsync(p => p.Nickname.Contains(
+        var notUnique = await _context.Profiles.AnyAsync(p => p.Nickname.Equals(
             nickname,
             StringComparison.InvariantCultureIgnoreCase) && p.Id != id);
 

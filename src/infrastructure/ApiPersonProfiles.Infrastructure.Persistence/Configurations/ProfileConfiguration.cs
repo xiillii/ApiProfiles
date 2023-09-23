@@ -14,6 +14,7 @@ public class ProfileConfiguration : IEntityTypeConfiguration<Profile>
             FirstName = "James",
             LastName = "Bond",
             Age = 24,
+            Nickname = "007",
             DateCreated = DateTime.Now,
             DateUpdated = DateTime.Now,
         });
