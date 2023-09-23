@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPersonProfiles.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPersonProfiles.Tests.Persistence.IntegrationTests", "tests\ApiPersonProfiles.Tests.Persistence.IntegrationTests\ApiPersonProfiles.Tests.Persistence.IntegrationTests.csproj", "{A7F4BD5D-4ED4-4AC4-91AA-A79DA00BEA0A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{732DF88A-544C-4033-B2D2-9CC2E335FD1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPersonProfiles.Api", "src\api\ApiPersonProfiles.Api\ApiPersonProfiles.Api.csproj", "{7A6A3548-1AB5-46FB-9EFF-5B6B0DBAC4B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{A7F4BD5D-4ED4-4AC4-91AA-A79DA00BEA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7F4BD5D-4ED4-4AC4-91AA-A79DA00BEA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7F4BD5D-4ED4-4AC4-91AA-A79DA00BEA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6A3548-1AB5-46FB-9EFF-5B6B0DBAC4B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6A3548-1AB5-46FB-9EFF-5B6B0DBAC4B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6A3548-1AB5-46FB-9EFF-5B6B0DBAC4B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6A3548-1AB5-46FB-9EFF-5B6B0DBAC4B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,8 @@ Global
 		{AD0D6E4F-4631-427F-A4C3-05741C868AF8} = {9F466E49-F8BF-4D16-B415-8E5811AB93D7}
 		{58693BC2-5591-4D09-9677-06BA78FA4F35} = {AD0D6E4F-4631-427F-A4C3-05741C868AF8}
 		{A7F4BD5D-4ED4-4AC4-91AA-A79DA00BEA0A} = {5851F950-A406-4867-89BF-CDB7E795159D}
+		{732DF88A-544C-4033-B2D2-9CC2E335FD1D} = {9F466E49-F8BF-4D16-B415-8E5811AB93D7}
+		{7A6A3548-1AB5-46FB-9EFF-5B6B0DBAC4B5} = {732DF88A-544C-4033-B2D2-9CC2E335FD1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7EA2D1FB-EE96-4BC1-841B-69EDAAF5206C}
