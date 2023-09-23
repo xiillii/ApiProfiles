@@ -6,7 +6,7 @@ namespace ApiPersonProfiles.Infrastructure.Persistence.Repositories;
 
 public class GenericRepositoryImpl<T> : IGenericRepository<T> where T : class
 {
-    private readonly EFDatabaseContext _context;
+    protected readonly EFDatabaseContext _context;
 
     public GenericRepositoryImpl(EFDatabaseContext context)
     {
