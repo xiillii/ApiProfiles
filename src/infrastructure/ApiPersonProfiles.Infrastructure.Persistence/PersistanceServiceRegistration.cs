@@ -1,4 +1,6 @@
-﻿using ApiPersonProfiles.Infrastructure.Persistence.DatabaseContext;
+﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Infrastructure.Persistence.DatabaseContext;
+using ApiPersonProfiles.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +15,9 @@ public static class PersistanceServiceRegistration
         services.AddDbContext<EFDatabaseContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("ProfilesConnectionString"));
-        });        
+        });
+
+        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositoryImpl<>));
 
         return services;
     }
