@@ -18,6 +18,8 @@ public static class PersistanceServiceRegistration
         });
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositoryImpl<>));
+        services.AddScoped<IProfileRepository, ProfileRepositoryImpl>();
+        services.AddScoped<IPictureRepository, PictureRepositoryImpl>();
 
         return services;
     }
