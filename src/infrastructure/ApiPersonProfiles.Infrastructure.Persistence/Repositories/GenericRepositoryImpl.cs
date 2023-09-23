@@ -1,10 +1,11 @@
 ﻿using ApiPersonProfiles.Core.Application.Contracts.Persistence;
+using ApiPersonProfiles.Core.Domain.Common;
 using ApiPersonProfiles.Infrastructure.Persistence.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiPersonProfiles.Infrastructure.Persistence.Repositories;
 
-public class GenericRepositoryImpl<T> : IGenericRepository<T> where T : class
+public class GenericRepositoryImpl<T> : IGenericRepository<T> where T : EntityBase
 {
     protected readonly EFDatabaseContext _context;
 
@@ -29,7 +30,11 @@ public class GenericRepositoryImpl<T> : IGenericRepository<T> where T : class
         => await _context.Set<T>().AsNoTracking().ToListAsync();
 
     public async Task<T?> GetByIdAsync(int id)
-        => await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(e => e.Equals(id));
+    {
+        var res =  await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+
+        return res;
+    }
 
     public async Task UpdateAsync(T entity)
     {
